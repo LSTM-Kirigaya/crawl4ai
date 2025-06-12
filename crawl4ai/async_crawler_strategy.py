@@ -456,6 +456,8 @@ class AsyncPlaywrightCrawlerStrategy(AsyncCrawlerStrategy):
             if config.capture_console_messages:
                 page, context = await self.browser_manager.get_page(crawlerRunConfig=config)
                 captured_console = await self._capture_console_messages(page, url)
+            else:
+                captured_console = None
 
             return AsyncCrawlResponse(
                 html=html,
